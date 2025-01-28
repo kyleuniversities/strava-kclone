@@ -1,0 +1,1 @@
+I have decided to hold off on Data Entities for now and create a Frontend mock app for now.  If I plan the data entities to thoroughly now, I will likely change it a lot.  I will hold off on them for later.
