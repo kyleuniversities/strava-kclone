@@ -47,7 +47,7 @@ const createCssModule = (path) => {
     const selfModuleExists = fs.existsSync(selfModulePath);
     if (selfModuleIsReferenced && !selfModuleExists) {
       console.log(selfModulePath);
-      fs.writeFileSync(selfModulePath, "");
+      fs.writeFileSync(selfModulePath, ".container {\n    display: block;\n}");
     }
   }
 };
