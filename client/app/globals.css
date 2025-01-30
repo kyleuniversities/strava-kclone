@@ -4,6 +4,9 @@
 
 :root {
   /** Base Colors **/ 
+  --orange-200: rgb(200, 50, 0);
+  --orange-210: rgb(210, 60, 0);
+  --orange-220: rgb(220, 70, 0);
   --orange: rgb(255, 100, 0);
   --water-blue: rgb(0,120,255);
   --cyan-220: rgb(220,255,255);

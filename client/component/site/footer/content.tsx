@@ -5,6 +5,7 @@ import {
   TWITTER_SVG_PATH,
   YOUTUBE_SVG_PATH,
 } from "@/resource/svg";
+import { ReactNode } from "react";
 
 export interface LinkText {
   text: string;

@@ -5,6 +5,7 @@
 	padding-right: 25px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	transition: 0.3s;
 }
 
 .color-scheme-default {
@@ -13,8 +14,17 @@
 	color: var(--white);
 }
 
+.color-scheme-default:hover {
+	border: 1px solid var(--orange-210);
+	background-color: var(--orange-210);
+}
+
 .color-scheme-white {
 	border: 1px solid var(--gray-230);
 	background-color: var(--white);
 	color: var(--black);
+}
+
+.color-scheme-white:hover {
+	background-color: var(--gray-220);
 }
