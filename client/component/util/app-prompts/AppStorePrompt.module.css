@@ -1,0 +1,13 @@
+.container {
+	display: block;
+	background-color: black;
+	color: white;
+}
+
+.prompt {
+	font-size: 18px;
+}
+
+.medium {
+	font-size: 36px;
+}

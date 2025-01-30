@@ -3,19 +3,104 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /** Base Colors **/ 
+  --orange: rgb(255, 100, 0);
+  --water-blue: rgb(0,120,255);
+  --cyan-220: rgb(220,255,255);
+  --black: rgb(0,0,0);
+  --gray-200: hsl(200,200,200);
+  --gray-210: rgb(210,210,210);
+  --gray-220: rgb(220,220,220);
+  --gray-230: rgb(230,230,230);
+  --gray-240: rgb(240,240,240);
+  --gray-250: rgb(250,250,250);
+  --white: rgb(255, 255, 255);
+
+  /** Colors **/
+  --active-link: var(--cyan-220);
+  --active-dark-link: var(--water-blue);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+/** Next JS Items **/
+
+nextjs-portal {
+  display: none;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/** Display **/
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/** Flex **/
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/** Float **/
+.float-right {
+  margin-left: auto;
+  order: 2;
+}
+
+.float-bottom {
+  margin-top: auto;
+  order: 2
+}
+
+/** Width **/
+.w-full {
+  width: 100%;
+}
+
+/** Height **/
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+/** Border **/
+.border {
+  border: 1px solid black;
+}
+
+/** Background **/
+.background {
+  background-color: white;
+}
+
+/** Padding **/
+.pd-5-10 {
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.pd-10-15 {
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
+/** Border Radius **/
+.rounded {
+  border-radius: 15px;
 }

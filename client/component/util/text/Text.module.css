@@ -1,0 +1,12 @@
+.container {
+	display: block;
+}
+
+.small {
+	font-size: 14px;
+}
+
+.large {
+	font-size: 28px;
+	font-weight: 600;
+}
