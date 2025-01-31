@@ -2,6 +2,8 @@
 import { CSSProperties } from "react";
 import styles from "./EngagementSection.module.css";
 import GetStartedBox from "./get-started/GetStartedBox";
+import FreeAppBox from "./free-app/FreeAppBox";
+import Spacer from "@/component/util/spacer/Spacer";
 
 // Parameters Interface
 interface EngagementSectionParameters {
@@ -26,6 +28,8 @@ export default function EngagementSection({
       style={containerStyle}
     >
       <GetStartedBox />
+      <Spacer size={20} />
+      <FreeAppBox />
     </div>
   );
 }
