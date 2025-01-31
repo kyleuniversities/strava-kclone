@@ -24,7 +24,7 @@ export default function PersonalSection({
   // Return Component
   return (
     <div
-      className={`${styles["container"]} ${{ className }}}`}
+      className={`${styles["container"]} ${className} px-25p`}
       style={containerStyle}
     >
       <UserBox />

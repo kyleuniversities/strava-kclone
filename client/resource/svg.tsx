@@ -80,6 +80,17 @@ export const CIRCLE_PLUS_SVG_PATH = (
   </>
 );
 
+export const RECORD_CIRCLE_SVG_PATH = (
+  <>
+    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+    <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+  </>
+);
+
+export const PEOPLE_FILL_SVG_PATH = (
+  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+);
+
 export const CHEVRON_RIGHT_SVG_PATH = (
   <path
     fill-rule="evenodd"

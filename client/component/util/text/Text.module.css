@@ -6,9 +6,24 @@
 	font-size: 14px;
 }
 
+.soft-medium-small {
+	font-size: 18px;
+	font-weight: 500;
+}
+
 .medium-small {
 	font-size: 18px;
 	font-weight: 600;
+}
+
+.medium-large {
+	font-size: 22px;
+	font-weight: 600;
+}
+
+.soft-large {
+	font-size: 28px;
+	font-weight: 500;
 }
 
 .large {

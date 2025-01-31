@@ -1,6 +1,7 @@
 // Imports
 import { CSSProperties } from "react";
 import styles from "./EngagementSection.module.css";
+import GetStartedBox from "./get-started/GetStartedBox";
 
 // Parameters Interface
 interface EngagementSectionParameters {
@@ -15,16 +16,16 @@ export default function EngagementSection({
 }: EngagementSectionParameters) {
   // XML Parameters
   const containerStyle: CSSProperties = {
-    ...style
-  }
+    ...style,
+  };
 
   // Return Component
   return (
     <div
-      className={`${styles["container"]} ${{className}}}`}
+      className={`${styles["container"]} ${{ className }}}`}
       style={containerStyle}
     >
-      EngagementSection
+      <GetStartedBox />
     </div>
   );
 }

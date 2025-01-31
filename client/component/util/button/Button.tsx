@@ -28,7 +28,7 @@ export default function Button({
   // Return Component
   return (
     <OptionalLink
-      className={`${styles["container"]} ${{ className }} ${styles[`color-scheme-${colorScheme}`]} flex-center flex-column`}
+      className={`${styles["container"]} ${className} ${styles[`color-scheme-${colorScheme}`]} flex-center flex-column`}
       style={containerStyle}
       to={to}
     >

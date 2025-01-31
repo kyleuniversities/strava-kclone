@@ -30,7 +30,7 @@ export default function DashboardPage({
         className={`${styles["container"]} ${className} flex-center`}
         style={containerStyle}
       >
-        <div className="flex-center w-full">
+        <div className="flex w-full">
           <PersonalSection />
           <EngagementSection />
           <SocialSection />
