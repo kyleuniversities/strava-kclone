@@ -1,6 +1,7 @@
 // Imports
 import { CSSProperties } from "react";
 import styles from "./GoalsBoxWeekDisplay.module.css";
+import Spacer from "@/component/util/spacer/Spacer";
 
 // Parameters Interface
 interface GoalsBoxWeekDisplayParameters {
@@ -15,8 +16,11 @@ export default function GoalsBoxWeekDisplay({
 }: GoalsBoxWeekDisplayParameters) {
   // Constants
   const dayTexts = ["M", "T", "W", "T", "F", "S", "S"];
-  const date = new Date(new Date().getTime() - 1000 * 60 * 60 * 8);
-  const day = (Number(date.getDay()) + 6) % 7;
+  const globalDate = new Date();
+  const localDate = new Date(
+    globalDate.getTime() - 1000 * 60 * globalDate.getTimezoneOffset(),
+  );
+  const day = (Number(localDate.getDay()) + 6) % 7;
 
   // XML Functions
   const getHighlightedClassName = (index: number) => {
@@ -36,7 +40,7 @@ export default function GoalsBoxWeekDisplay({
     >
       {dayTexts.map((dayText: string, index: number) => (
         <div className={`${styles["day"]} flex-center flex-column`}>
-          <div>&nbsp;</div>
+          <Spacer size={20} />
           <div
             className={`${styles["amount"]} ${getHighlightedClassName(index)}`}
           >
