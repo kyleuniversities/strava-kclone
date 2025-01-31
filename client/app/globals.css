@@ -128,3 +128,16 @@ nextjs-portal {
 .rounded {
   border-radius: 15px;
 }
+
+/** Dropdown **/
+.dropdown-menu {
+  
+}
+
+.dropdown-show {
+  display: block;
+}
+
+.dropdown-hide {
+  display: none;
+}
