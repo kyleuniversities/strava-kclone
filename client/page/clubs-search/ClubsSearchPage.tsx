@@ -15,6 +15,9 @@ import Spacer from "@/component/util/spacer/Spacer";
 import SidePadder from "@/component/util/spacer/SidePadder";
 import LabeledButton from "@/component/util/input/label/LabeledButton";
 import { joinSentenceCase, splitMacroCase } from "@/helper/string";
+import { useSearchParams } from "next/navigation";
+import { toIndexArray } from "@/helper/array";
+import Link from "next/link";
 
 // Parameters Interface
 interface ClubsSearchPageParameters {
@@ -27,12 +30,27 @@ export default function ClubsSearchPage({
   className = "",
   style = {},
 }: ClubsSearchPageParameters) {
+  // Constant
+  const pageTag = "page";
+
+  // Search Parameters Constants
+  const searchParams = useSearchParams();
+  const pageIndex = searchParams.has(pageTag)
+    ? Number(searchParams.get(pageTag)) - 1
+    : 0;
+
   // Use State Constants
   const [clubName, setClubName] = useState<string>("");
   const [location, setLocation] = useState<string>("");
   const [sportType, setSportType] = useState<string>("Running");
 
   // XML Parameters
+  const pageAmount = 10;
+  const numberOfPages = Math.ceil(clubs.length / pageAmount);
+  const listedClubs = clubs.slice(
+    Math.min(pageIndex * pageAmount, clubs.length),
+    Math.min((pageIndex + 1) * pageAmount, clubs.length),
+  );
   const containerStyle: CSSProperties = {
     ...style,
   };
@@ -86,38 +104,72 @@ export default function ClubsSearchPage({
           </div>
         </div>
         <Spacer size={20} />
-        <div className={`${styles["club-list"]}`}>
-          {clubs.map((club: Club) => (
-            <div className={`${styles["club"]} flex`}>
-              <img src={club.src} className={`${styles["image"]}`} />
-              <SidePadder size={10} />
-              <div className={`${styles["club-title"]}`}>
-                <Text size="medium-large">{club.name}</Text>
-                <Text size="soft-medium-small">{club.location}</Text>
-              </div>
-              <SidePadder size={"20%"} />
-              <div className={`${styles["member"]}`}>
-                <Text size="soft-medium-small">{club.members}</Text>
-              </div>
-              <SidePadder size={"10%"} />
-              <div className={`${styles["sport-type"]}`}>
-                <Text size="soft-medium-small">{club.sportType}</Text>
-              </div>
-              <SidePadder size={"10%"} />
-              <div className={`${styles["type"]}`}>
-                <Text size="soft-medium-small">
-                  {joinSentenceCase(
-                    splitMacroCase(clubTypeStrings[club.clubType]),
-                  )}
-                </Text>
-              </div>
-              <SidePadder size={"10%"} />
-              <div className={`${styles["type"]}`}>
-                {club.joinable && <Button to="#">Join</Button>}
+        {listedClubs.length > 0 ? (
+          <>
+            <div className={`${styles["club-list"]}`}>
+              {listedClubs.map((club: Club) => (
+                <div className={`${styles["club"]} flex`}>
+                  <img src={club.src} className={`${styles["image"]}`} />
+                  <SidePadder size={10} />
+                  <div className={`${styles["club-title"]}`}>
+                    <Text size="medium-large">{club.name}</Text>
+                    <Text size="soft-medium-small">{club.location}</Text>
+                  </div>
+                  <SidePadder size={"20%"} />
+                  <div className={`${styles["member"]}`}>
+                    <Text size="soft-medium-small">{club.members}</Text>
+                  </div>
+                  <SidePadder size={"10%"} />
+                  <div className={`${styles["sport-type"]}`}>
+                    <Text size="soft-medium-small">{club.sportType}</Text>
+                  </div>
+                  <SidePadder size={"10%"} />
+                  <div className={`${styles["type"]}`}>
+                    <Text size="soft-medium-small">
+                      {joinSentenceCase(
+                        splitMacroCase(clubTypeStrings[club.clubType]),
+                      )}
+                    </Text>
+                  </div>
+                  <SidePadder size={"10%"} />
+                  <div className={`${styles["type"]}`}>
+                    {club.joinable && <Button to="#">Join</Button>}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className={`w-full flex-center`}>
+              <div className={`${styles["pagination-container"]} flex-center`}>
+                <Link
+                  className={`${styles["pagination-card-link"]}`}
+                  href={`/clubs?page=${Math.max(pageIndex, 1)}`}
+                >
+                  <div className={`${styles["pagination-card"]}`}>←</div>
+                </Link>
+                {toIndexArray(numberOfPages).map((index: number) => (
+                  <Link
+                    className={`${styles["pagination-card-link"]}`}
+                    href={`/clubs?page=${index + 1}`}
+                  >
+                    <div
+                      className={`${styles["pagination-card"]} ${pageIndex === index ? styles["active"] : ""}`}
+                    >
+                      {index + 1}
+                    </div>
+                  </Link>
+                ))}
+                <Link
+                  className={`${styles["pagination-card-link"]}`}
+                  href={`/clubs?page=${Math.min(pageIndex + 2, numberOfPages)}`}
+                >
+                  <div className={`${styles["pagination-card"]}`}>→</div>
+                </Link>
               </div>
             </div>
-          ))}
-        </div>
+          </>
+        ) : (
+          <div>No results found</div>
+        )}
       </div>
     </UserSitePage>
   );
