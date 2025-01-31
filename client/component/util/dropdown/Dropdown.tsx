@@ -4,6 +4,7 @@
 // Imports
 import { CSSProperties, ReactNode, useState } from "react";
 import styles from "./Dropdown.module.css";
+import { hideDropdownMenusExcept } from "@/utility/dropdown";
 
 // Parameters Interface
 interface DropdownParameters {
@@ -24,22 +25,6 @@ export default function Dropdown({
   const menuId = `${dropdownId}-menu`;
 
   // Script Functions
-  const hideDropdownMenusExcept = (retainedMenuId: string) => {
-    let menus: HTMLCollectionOf<Element> =
-      document.getElementsByClassName("dropdown-menu");
-    for (let i = 0; i < menus.length; i++) {
-      const menu = menus.item(i);
-      if (menu && menu.id && menu.id !== retainedMenuId) {
-        if (menu.classList.contains("dropdown-show")) {
-          menu.classList.remove("dropdown-show");
-        }
-        if (!menu.classList.contains("dropdown-hide")) {
-          menu.classList.toggle("dropdown-hide");
-        }
-      }
-    }
-  };
-
   const getDropdownId = (parent: HTMLElement) => {
     const parentId = parent.id;
     if (parent.classList.contains("dropdown-button")) {

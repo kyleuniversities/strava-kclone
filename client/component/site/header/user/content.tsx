@@ -12,7 +12,7 @@ export const dashboardDropdownData: SiteDropdownData = {
         },
         {
           text: "Clubs",
-          to: "#",
+          to: "/clubs",
         },
         {
           text: "My Segments",

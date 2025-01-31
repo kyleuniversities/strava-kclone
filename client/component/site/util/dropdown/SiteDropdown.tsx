@@ -1,3 +1,6 @@
+// Use Client
+"use client";
+
 // Imports
 import { CSSProperties } from "react";
 import styles from "./SiteDropdown.module.css";
@@ -13,11 +16,16 @@ import {
   SiteDropdownSection,
 } from "./types";
 import OptionalLink from "@/component/util/optional/OptionalLink";
+import { hideDropdownMenusExcept } from "@/utility/dropdown";
 
 // Parameters Interface
 interface SiteDropdownParameters {
   className?: string;
   style?: CSSProperties;
+  maxHeight?: number | string;
+  nodePadding?: number | string;
+  currentTitle?: string;
+  onSelect?: (text: string) => void;
   dropdownData: SiteDropdownData;
 }
 
@@ -25,19 +33,37 @@ interface SiteDropdownParameters {
 export default function SiteDropdown({
   className = "",
   style = {},
+  maxHeight,
+  nodePadding = 20,
+  currentTitle = "",
   dropdownData,
+  onSelect = (text: string) => {},
 }: SiteDropdownParameters) {
-  // XML Functions
+  // Handle Methods
+  const handleSelect = (text: string) => {
+    setTimeout(() => {
+      hideDropdownMenusExcept();
+    }, 50);
+    onSelect(text);
+  };
+
+  // XML Methods
   const getColorScheme = (section: SiteDropdownSection) => {
     if (!section.colorScheme) {
       return "default";
     }
     return section.colorScheme;
   };
+  const getTitle = () => {
+    return currentTitle.length ? currentTitle : dropdownData.title;
+  };
 
   // XML Parameters
   const containerStyle: CSSProperties = {
     ...style,
+  };
+  const nodeStyle: CSSProperties = {
+    padding: nodePadding,
   };
 
   // Return Component
@@ -49,14 +75,17 @@ export default function SiteDropdown({
       <Dropdown dropdownId={dropdownData.dropdownId}>
         <DropdownButton dropdownId={dropdownData.dropdownId}>
           <div className={`flex-center`}>
-            <div>{dropdownData.title}</div>
+            <div>{getTitle()}</div>
             <SidePadder size={5} />
             <div className={`${styles["dropdown-chevron"]}`}>
               <SvgIcon>{CHEVRON_DOWN_SVG_PATH}</SvgIcon>
             </div>
           </div>
         </DropdownButton>
-        <DropdownMenu dropdownId={dropdownData.dropdownId}>
+        <DropdownMenu
+          maxHeight={maxHeight}
+          dropdownId={dropdownData.dropdownId}
+        >
           {dropdownData.sections.map((section: SiteDropdownSection) => (
             <div
               className={`${styles["section"]} ${styles[`color-scheme-${getColorScheme(section)}`]}`}
@@ -67,7 +96,11 @@ export default function SiteDropdown({
                 </div>
               )}
               {section.nodes.map((node: SiteDropdownNode) => (
-                <div className={`${styles["node"]}`}>
+                <div
+                  onClick={() => handleSelect(node.text)}
+                  className={`${styles["node"]}`}
+                  style={nodeStyle}
+                >
                   <OptionalLink to={node.to}>
                     <div>{node.text}</div>
                   </OptionalLink>

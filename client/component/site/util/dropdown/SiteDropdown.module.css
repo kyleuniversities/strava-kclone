@@ -1,5 +1,6 @@
 .container {
 	display: block;
+	background-color: var(--white);
 }
 
 .dropdown-chevron {

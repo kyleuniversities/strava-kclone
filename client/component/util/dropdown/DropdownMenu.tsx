@@ -7,6 +7,7 @@ interface DropdownMenuParameters {
   className?: string;
   style?: CSSProperties;
   dropdownId: string;
+  maxHeight?: number | string;
   children: ReactNode;
 }
 
@@ -15,11 +16,13 @@ export default function DropdownMenu({
   className = "",
   style = {},
   dropdownId,
+  maxHeight,
   children,
 }: DropdownMenuParameters) {
   // XML Parameters
   const containerStyle: CSSProperties = {
     ...style,
+    maxHeight,
   };
 
   // Return Component

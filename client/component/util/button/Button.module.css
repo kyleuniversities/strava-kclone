@@ -1,10 +1,20 @@
 .container {
 	border-radius: 5px;
+	transition: 0.3s;
+}
+
+.variant-default {
 	padding-left: 25px;
 	padding-right: 25px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	transition: 0.3s;
+}
+
+.variant-small {
+	padding-left: 7.5px;
+	padding-right: 7.5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
 
 .color-scheme-default {
@@ -26,4 +36,14 @@
 
 .color-scheme-white:hover {
 	background-color: var(--gray-220);
+}
+
+.color-scheme-black {
+	border: 1px solid var(--black);
+	background-color: var(--black);
+	color: var(--white);
+}
+
+.color-scheme-black:hover {
+	background-color: var(--gray-50);
 }

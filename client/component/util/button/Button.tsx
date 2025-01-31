@@ -7,6 +7,7 @@ import OptionalLink from "../optional/OptionalLink";
 interface ButtonParameters {
   className?: string;
   style?: CSSProperties;
+  variant?: string;
   colorScheme?: string;
   to?: string;
   children: ReactNode;
@@ -16,6 +17,7 @@ interface ButtonParameters {
 export default function Button({
   className = "",
   style = {},
+  variant = "default",
   colorScheme = "default",
   to = "",
   children,
@@ -28,7 +30,7 @@ export default function Button({
   // Return Component
   return (
     <OptionalLink
-      className={`${styles["container"]} ${className} ${styles[`color-scheme-${colorScheme}`]} flex-center flex-column`}
+      className={`${styles["container"]} ${className} ${styles[`variant-${variant}`]} ${styles[`color-scheme-${colorScheme}`]} flex-center flex-column`}
       style={containerStyle}
       to={to}
     >
