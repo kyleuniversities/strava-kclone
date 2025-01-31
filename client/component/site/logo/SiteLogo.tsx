@@ -6,12 +6,14 @@ import styles from "./SiteLogo.module.css";
 interface SiteLogoParameters {
   className?: string;
   style?: CSSProperties;
+  colorScheme?: string;
 }
 
 // Export Component
 export default function SiteLogo({
   className = "",
   style = {},
+  colorScheme = "default",
 }: SiteLogoParameters) {
   // XML Parameters
   const containerStyle: CSSProperties = {
@@ -21,7 +23,7 @@ export default function SiteLogo({
   // Return Component
   return (
     <div
-      className={`${styles["container"]} ${{ className }}}`}
+      className={`${styles["container"]} ${{ className }}} ${styles[`color-scheme-${colorScheme}`]}`}
       style={containerStyle}
     >
       STRAVA

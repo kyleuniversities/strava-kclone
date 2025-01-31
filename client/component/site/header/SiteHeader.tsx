@@ -6,6 +6,8 @@ import TopNavBar from "./TopNavBar";
 import FloatRightContainer from "@/component/util/float/FloatRightContainer";
 import Button from "@/component/util/button/Button";
 import SidePadder from "@/component/util/spacer/SidePadder";
+import SvgIcon from "@/component/util/svg/SvgIcon";
+import { BELL_SVG_PATH } from "@/resource/svg";
 
 // Parameters Interface
 interface SiteHeaderParameters {
@@ -33,7 +35,9 @@ export default function SiteHeader({
       <SidePadder size={15} />
       <TopNavBar />
       <FloatRightContainer>
-        <Button colorScheme="white">Log In</Button>
+        <Button colorScheme="white" to="dashboard">
+          Log In
+        </Button>
       </FloatRightContainer>
     </div>
   );

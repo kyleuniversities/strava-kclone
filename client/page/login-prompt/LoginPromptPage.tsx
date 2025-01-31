@@ -44,7 +44,7 @@ export default function LoginPromptPage({
             <Spacer size={20} />
             <Text>Already a Member? Login In</Text>
             <Spacer size={20} />
-            <Button>Sign Up With Email</Button>
+            <Button to="dashboard">Sign Up With Email</Button>
             <Spacer size={20} />
             <Text>
               By signing up for Strava, you agree to the Terms of Service. View

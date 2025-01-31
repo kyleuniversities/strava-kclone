@@ -1,6 +1,8 @@
 // Imports
 import { CSSProperties } from "react";
 import styles from "./DashboardPage.module.css";
+import SitePage from "@/component/site/page/SitePage";
+import UserSitePage from "@/component/site/page/user/UserSitePage";
 
 // Parameters Interface
 interface DashboardPageParameters {
@@ -15,16 +17,9 @@ export default function DashboardPage({
 }: DashboardPageParameters) {
   // XML Parameters
   const containerStyle: CSSProperties = {
-    ...style
-  }
+    ...style,
+  };
 
   // Return Component
-  return (
-    <div
-      className={`${styles["container"]} ${{className}}}`}
-      style={containerStyle}
-    >
-      DashboardPage
-    </div>
-  );
+  return <UserSitePage>Dashboard</UserSitePage>;
 }

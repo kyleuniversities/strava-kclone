@@ -1,0 +1,15 @@
+.container {
+    padding: 30px;
+    background-color: white;
+	font-weight: 600;
+}
+
+.upload-node {
+    color: var(--orange)
+}
+
+.profile-pic {
+    width: 40px;
+    border-radius: 1000px;
+    border: 1px solid var(--gray-210);
+}

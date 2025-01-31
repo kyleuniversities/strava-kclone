@@ -1,5 +1,12 @@
 .container {
-    color: var(--orange);
     font-weight: bold;
     font-size: 28px;
+}
+
+.color-scheme-default {
+    color: var(--orange);
+}
+
+.color-scheme-gray {
+    color: var(--gray-150);
 }

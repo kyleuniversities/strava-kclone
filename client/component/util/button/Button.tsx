@@ -1,12 +1,17 @@
 // Imports
 import { CSSProperties, ReactNode } from "react";
 import styles from "./Button.module.css";
+import { ContainerElement } from "../type/Container";
+import DivElement from "@/component/wrapper/DivElement";
+import LinkElement from "@/component/wrapper/LinkElement";
+import OptionalLink from "../optional/OptionalLink";
 
 // Parameters Interface
 interface ButtonParameters {
   className?: string;
   style?: CSSProperties;
   colorScheme?: string;
+  to?: string;
   children: ReactNode;
 }
 
@@ -15,6 +20,7 @@ export default function Button({
   className = "",
   style = {},
   colorScheme = "default",
+  to = "",
   children,
 }: ButtonParameters) {
   // XML Parameters
@@ -24,11 +30,12 @@ export default function Button({
 
   // Return Component
   return (
-    <div
+    <OptionalLink
       className={`${styles["container"]} ${{ className }} ${styles[`color-scheme-${colorScheme}`]}`}
       style={containerStyle}
+      to={to}
     >
       {children}
-    </div>
+    </OptionalLink>
   );
 }

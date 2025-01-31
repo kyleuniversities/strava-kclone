@@ -23,7 +23,7 @@ export default function FloatRightContainer({
   // Return Component
   return (
     <div
-      className={`${styles["container"]} ${{ className }}`}
+      className={`${styles["container"]} ${className}`}
       style={containerStyle}
     >
       {children}

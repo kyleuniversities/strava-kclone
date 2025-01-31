@@ -6,6 +6,11 @@
 	font-size: 14px;
 }
 
+.medium-small {
+	font-size: 18px;
+	font-weight: 600;
+}
+
 .large {
 	font-size: 28px;
 	font-weight: 600;
