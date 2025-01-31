@@ -6,7 +6,8 @@ import IconCard from "@/component/util/card/IconCard";
 import { RECORD_CIRCLE_SVG_PATH } from "@/resource/svg";
 import Button from "@/component/util/button/Button";
 import Spacer from "@/component/util/spacer/Spacer";
-import { cardsData, GetStartedIconCardContent } from "./content";
+import { cardsData } from "./content";
+import { LinkIconCardContent } from "@/component/util/card/types";
 
 // Parameters Interface
 interface GetStartedBoxParameters {
@@ -49,25 +50,23 @@ export default function GetStartedBox({
           </Text>
         </div>
         <div>
-          {cardsData.map(
-            (cardData: GetStartedIconCardContent, index: number) => (
-              <IconCard
-                svgPath={cardData.svgPath}
-                title={cardData.title}
-                description={cardData.description}
+          {cardsData.map((cardData: LinkIconCardContent, index: number) => (
+            <IconCard
+              svgPath={cardData.svgPath}
+              title={cardData.title}
+              description={cardData.description}
+            >
+              <div
+                className={`${styles["card-content"]} ${getBorderBottomClassName(cardsData, index)}`}
               >
-                <div
-                  className={`${styles["card-content"]} ${getBorderBottomClassName(cardsData, index)}`}
-                >
-                  <Spacer size={10} />
-                  <div className={`${styles["button"]}`}>
-                    <Button to={cardData.to}>{cardData.buttonText}</Button>
-                  </div>
-                  <Spacer size={20} />
+                <Spacer size={10} />
+                <div className={`${styles["button"]}`}>
+                  <Button to={cardData.to}>{cardData.text}</Button>
                 </div>
-              </IconCard>
-            ),
-          )}
+                <Spacer size={20} />
+              </div>
+            </IconCard>
+          ))}
         </div>
       </div>
     </div>

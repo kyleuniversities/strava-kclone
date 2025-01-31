@@ -1,5 +1,10 @@
 .container {
 	display: block;
 	width: 28.5%;
-	border: 1px solid black;
+}
+
+.social-box {
+	margin-left: 25px;
+	background-color: var(--white);
+	border-radius: 3px;
 }

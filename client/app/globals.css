@@ -7,6 +7,7 @@
   --orange-200: rgb(200, 50, 0);
   --orange-210: rgb(210, 60, 0);
   --orange-220: rgb(220, 70, 0);
+  --gray-orange-230: rgb(200,60,0);
   --orange: rgb(255, 100, 0);
   --water-blue: rgb(0,120,255);
   --cyan-220: rgb(220,255,255);
@@ -20,6 +21,7 @@
   --gray-210: rgb(210,210,210);
   --gray-220: rgb(220,220,220);
   --gray-230: rgb(230,230,230);
+  --gray-235: rgb(235,235,235);
   --gray-240: rgb(240,240,240);
   --gray-250: rgb(250,250,250);
   --white: rgb(255, 255, 255);
@@ -27,6 +29,7 @@
   /** Colors **/
   --active-link: var(--cyan-220);
   --active-dark-link: var(--water-blue);
+  --dashboard-background-color: var(--gray-235);
 }
 
 

@@ -2,7 +2,7 @@
 import { CSSProperties } from "react";
 import styles from "./FreeAppBox.module.css";
 import IconCard from "@/component/util/card/IconCard";
-import { cardsData, GetStartedIconCardContent } from "../get-started/content";
+import { cardsData, IconCardContent } from "../get-started/content";
 import Text from "@/component/util/text/Text";
 import Spacer from "@/component/util/spacer/Spacer";
 import Button from "@/component/util/button/Button";
