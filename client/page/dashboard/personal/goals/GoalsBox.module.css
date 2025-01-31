@@ -1,7 +1,12 @@
 .container {
 	display: flex;
-	background-color: var(--white);
 	border-radius: 3px;
+}
+
+.tab {
+	background-color: var(--white);
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
 }
 
 .main-container {
@@ -12,4 +17,27 @@
 
 .add-container {
 	padding: 15px;
+}
+
+.color-orange {
+	color: var(--orange);
+}
+
+.path-icon {
+	--size: 32px;
+	border: 2px solid var(--orange);
+	width: var(--size);
+	height: var(--size);
+	border-radius: calc(var(--size) / 2);
+}
+
+.tab-box {
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.tab-box + .tab-box {
+	border-top: 1px solid var(--gray-240);
 }

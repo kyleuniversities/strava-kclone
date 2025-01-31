@@ -29,7 +29,7 @@ export default function PersonalSection({
     >
       <UserBox />
       <Spacer size={20} />
-      {/* <GoalsBox /> */}
+      <GoalsBox />
     </div>
   );
 }
