@@ -1,9 +1,6 @@
 // Imports
 import { CSSProperties, ReactNode } from "react";
 import styles from "./Button.module.css";
-import { ContainerElement } from "../type/Container";
-import DivElement from "@/component/wrapper/DivElement";
-import LinkElement from "@/component/wrapper/LinkElement";
 import OptionalLink from "../optional/OptionalLink";
 
 // Parameters Interface
@@ -31,7 +28,7 @@ export default function Button({
   // Return Component
   return (
     <OptionalLink
-      className={`${styles["container"]} ${{ className }} ${styles[`color-scheme-${colorScheme}`]}`}
+      className={`${styles["container"]} ${{ className }} ${styles[`color-scheme-${colorScheme}`]} flex-center flex-column`}
       style={containerStyle}
       to={to}
     >

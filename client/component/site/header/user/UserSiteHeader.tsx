@@ -8,6 +8,7 @@ import UserTopNavBar from "./UserTopNavBar";
 import SiteLogo from "../../logo/SiteLogo";
 import SvgIcon from "@/component/util/svg/SvgIcon";
 import { BELL_SVG_PATH, CIRCLE_PLUS_SVG_PATH } from "@/resource/svg";
+import ProfileImage from "../../profile/ProfileImage";
 
 // Parameters Interface
 interface UserSiteHeaderParameters {
@@ -41,10 +42,7 @@ export default function UserSiteHeader({
           <SvgIcon size={30}>{BELL_SVG_PATH}</SvgIcon>
         </div>
         <SidePadder size={40} />
-        <img
-          className={`${styles["profile-pic"]}`}
-          src="/props/profile-pic-example.png"
-        />
+        <ProfileImage />
         <SidePadder size={40} />
         <div className={`${styles["upload-node"]}`}>
           <SvgIcon size={30}>{CIRCLE_PLUS_SVG_PATH}</SvgIcon>

@@ -3,6 +3,9 @@ import { CSSProperties } from "react";
 import styles from "./DashboardPage.module.css";
 import SitePage from "@/component/site/page/SitePage";
 import UserSitePage from "@/component/site/page/user/UserSitePage";
+import PersonalSection from "./personal/PersonalSection";
+import EngagementSection from "./engagement/EngagementSection";
+import SocialSection from "./social/SocialSection";
 
 // Parameters Interface
 interface DashboardPageParameters {
@@ -21,5 +24,18 @@ export default function DashboardPage({
   };
 
   // Return Component
-  return <UserSitePage>Dashboard</UserSitePage>;
+  return (
+    <UserSitePage>
+      <div
+        className={`${styles["container"]} ${className} flex-center`}
+        style={containerStyle}
+      >
+        <div className="flex-center w-full">
+          <PersonalSection />
+          <EngagementSection />
+          <SocialSection />
+        </div>
+      </div>
+    </UserSitePage>
+  );
 }

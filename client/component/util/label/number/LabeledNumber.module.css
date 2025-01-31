@@ -1,0 +1,8 @@
+.container {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.container + .container {
+	border-left: 1px solid var(--gray-240);
+}
