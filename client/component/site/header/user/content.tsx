@@ -8,7 +8,7 @@ export const dashboardDropdownData: SiteDropdownData = {
       nodes: [
         {
           text: "Activity Feed",
-          to: "#",
+          to: "/dashboard",
         },
         {
           text: "Clubs",
@@ -16,11 +16,11 @@ export const dashboardDropdownData: SiteDropdownData = {
         },
         {
           text: "My Segments",
-          to: "#",
+          to: "/segments",
         },
         {
           text: "My Routes",
-          to: "#",
+          to: "/routes",
         },
       ],
     },
@@ -45,7 +45,7 @@ export const trainingDropdownData: SiteDropdownData = {
       nodes: [
         {
           text: "Training Calendar",
-          to: "#",
+          to: "/training-calendar",
         },
         {
           text: "My Activities",
