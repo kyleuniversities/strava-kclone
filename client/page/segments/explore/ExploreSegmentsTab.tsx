@@ -1,13 +1,9 @@
 // Imports
 import { CSSProperties } from "react";
 import styles from "./ExploreSegmentsTab.module.css";
-import Text from "@/component/util/text/Text";
 import InfoContainer from "@/component/util/data/InfoContainer";
-import LinkSpan from "@/component/util/text/span/LinkSpan";
 import Button from "@/component/util/button/Button";
 import Spacer from "@/component/util/spacer/Spacer";
-import SiteListingTable from "@/component/site/util/listing-table/SiteListingTable";
-import { segmentsData } from "./content";
 
 // Parameters Interface
 interface ExploreSegmentsTabParameters {
