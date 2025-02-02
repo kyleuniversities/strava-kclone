@@ -7,6 +7,7 @@ import FloatRightContainer from "@/component/util/float/FloatRightContainer";
 import LinkSpan from "@/component/util/text/span/LinkSpan";
 import Spacer from "@/component/util/spacer/Spacer";
 import Button from "@/component/util/button/Button";
+import MapComponent from "@/component/util/map/MapComponent";
 
 // Parameters Interface
 interface RoutesPageParameters {
@@ -33,7 +34,7 @@ export default function RoutesPage({
       >
         <div className="flex w-full">
           <div>
-            <Text size="large">My Segments</Text>
+            <Text size="large">My Routes</Text>
             <Spacer size={10} />
             <Text size="soft-medium-small">
               Learn more about{" "}
@@ -53,6 +54,16 @@ export default function RoutesPage({
               className={`${styles["map-image"]}`}
             />
           </FloatRightContainer>
+        </div>
+        <div>Z</div>
+        <div
+          style={{
+            width: "100%",
+            minHeight: "300px",
+            border: "1px solid black",
+          }}
+        >
+          <MapComponent minHeight="300px" />
         </div>
       </div>
     </UserSitePage>

@@ -25,7 +25,6 @@ export default function Button({
   // XML Parameters
   const containerStyle: CSSProperties = {
     ...style,
-    backgroundColor: "blue",
   };
 
   // Return Component
