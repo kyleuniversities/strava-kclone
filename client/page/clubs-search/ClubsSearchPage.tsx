@@ -35,9 +35,10 @@ export default function ClubsSearchPage({
 
   // Search Parameters Constants
   const searchParams = useSearchParams();
-  const pageIndex = searchParams.has(pageTag)
-    ? Number(searchParams.get(pageTag)) - 1
-    : 0;
+  const pageIndex =
+    searchParams && searchParams.has(pageTag)
+      ? Number(searchParams.get(pageTag)) - 1
+      : 0;
 
   // Use State Constants
   const [clubName, setClubName] = useState<string>("");
