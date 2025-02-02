@@ -1,3 +1,16 @@
 .container {
 	display: block;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 8%;
+	padding-right: 8%;
+	background-color: var(--white);
+}
+
+.map-image {
+	width: 250px;
+}
+
+.button {
+	max-width: 150px;
 }
