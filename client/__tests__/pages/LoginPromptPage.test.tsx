@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import LoginPromptPage from "@/page/login-prompt/LoginPromptPage";
 
 describe("Login Page", () => {
@@ -17,5 +17,14 @@ describe("Login Page", () => {
     render(<LoginPromptPage />);
     const elements = screen.getAllByText("STRAVA");
     expect(elements.length).toEqual(2);
+  });
+  it("renders the sign up with email text", async () => {
+    render(<LoginPromptPage />);
+    const element = screen.getByText("Sign Up With Email")
+      .parentElement as HTMLElement;
+    fireEvent.click(element);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const elements = screen.getAllByText("Kyle Humphrey");
+    expect(elements.length).toBeGreaterThan(0);
   });
 });
