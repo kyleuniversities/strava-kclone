@@ -7,6 +7,7 @@ import Text from "../text/Text";
 interface LabeledComponentParameters {
   className?: string;
   style?: CSSProperties;
+  width?: number | string;
   labelText: string;
   size?: string;
   children: ReactNode;
@@ -16,6 +17,7 @@ interface LabeledComponentParameters {
 export default function LabeledComponent({
   className = "",
   style = {},
+  width,
   labelText,
   size = "medium-small",
   children,
@@ -23,6 +25,7 @@ export default function LabeledComponent({
   // XML Parameters
   const containerStyle: CSSProperties = {
     ...style,
+    width,
   };
 
   // Return Component

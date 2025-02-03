@@ -22,6 +22,7 @@ import { hideDropdownMenusExcept } from "@/utility/dropdown";
 interface SiteDropdownParameters {
   className?: string;
   style?: CSSProperties;
+  width?: number | string;
   maxHeight?: number | string;
   nodePadding?: number | string;
   currentTitle?: string;
@@ -33,6 +34,7 @@ interface SiteDropdownParameters {
 export default function SiteDropdown({
   className = "",
   style = {},
+  width,
   maxHeight,
   nodePadding = 20,
   currentTitle = "",
@@ -61,9 +63,11 @@ export default function SiteDropdown({
   // XML Parameters
   const containerStyle: CSSProperties = {
     ...style,
+    width,
   };
   const nodeStyle: CSSProperties = {
     padding: nodePadding,
+    width,
   };
 
   // Return Component

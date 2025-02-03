@@ -6,8 +6,9 @@
   /** Base Colors **/ 
   --orange-200: rgb(200, 50, 0);
   --orange-210: rgb(210, 60, 0);
-  --orange-220: rgb(220, 70, 0);
+  --orange-220: #dc4600;
   --gray-orange-230: rgb(200,60,0);
+  --gray-orange-235: rgb(255,235,220);
   --orange: rgb(255, 100, 0);
   --light-orange: rgb(255, 150, 50);
   --water-blue: rgb(0,120,255);

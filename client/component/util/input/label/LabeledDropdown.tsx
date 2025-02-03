@@ -9,6 +9,7 @@ import { SiteDropdownData } from "@/component/site/util/dropdown/types";
 interface LabeledDropdownParameters {
   className?: string;
   style?: CSSProperties;
+  width?: number | string;
   maxHeight?: number | string;
   nodePadding?: number | string;
   labelText: string;
@@ -21,6 +22,7 @@ interface LabeledDropdownParameters {
 export default function LabeledDropdown({
   className = "",
   style = {},
+  width,
   maxHeight = "90vh",
   nodePadding = 20,
   labelText,
@@ -29,13 +31,19 @@ export default function LabeledDropdown({
   dropdownData,
 }: LabeledDropdownParameters) {
   return (
-    <LabeledComponent className={className} style={style} labelText={labelText}>
+    <LabeledComponent
+      className={className}
+      style={style}
+      width={width}
+      labelText={labelText}
+    >
       <SiteDropdown
         currentTitle={value}
         onSelect={setValue}
         dropdownData={dropdownData}
         maxHeight={maxHeight}
         nodePadding={nodePadding}
+        width={width}
       />
     </LabeledComponent>
   );

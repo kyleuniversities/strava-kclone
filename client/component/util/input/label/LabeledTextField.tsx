@@ -7,6 +7,7 @@ import LabeledComponent from "../../label/LabeledComponent";
 interface LabeledTextFieldParameters {
   className?: string;
   style?: CSSProperties;
+  width?: number | string;
   labelText: string;
   placeholder: string;
   value: string;
@@ -17,15 +18,23 @@ interface LabeledTextFieldParameters {
 export default function LabeledTextField({
   className = "",
   style = {},
+  width,
   labelText,
   placeholder,
   value,
   setValue,
 }: LabeledTextFieldParameters) {
+  // XML Parameters
+  const inputStyle: CSSProperties = {
+    width,
+  };
+
+  // Return Component
   return (
     <LabeledComponent className={className} style={style} labelText={labelText}>
       <input
         className={`${styles["container"]}`}
+        style={inputStyle}
         type="text"
         placeholder={placeholder}
         value={value}
