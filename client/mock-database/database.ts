@@ -1,5 +1,6 @@
 // Imports
 import FileHelper from "./fileHelper";
+import { wait } from "./wait";
 
 // Constants
 const DATA_FOLDER_PATH = `/data`;
@@ -40,10 +41,11 @@ export default class Database {
     }
   }
 
-  static async delete(tableName: string, queries: any) {
+  static async delete(tableName: string, queries: any): Promise<TableData> {
     Database.createTable(tableName);
     const tableData = Database.getTable(tableName);
     const newTableData = [];
+    const deletedData = [];
     const queryKeys = Object.keys(queries);
     for (let record of tableData) {
       let willDelete = true;
@@ -55,8 +57,16 @@ export default class Database {
           break;
         }
       }
+      if (willDelete) {
+        deletedData.push(record);
+      }
     }
     Database.exportTable(tableName, newTableData);
+    return deletedData;
+  }
+
+  static async deleteById(tableName: string, id: string) {
+    return await Database.delete(tableName, { id });
   }
 
   static async dropTable(name: string) {
@@ -67,6 +77,7 @@ export default class Database {
     Database.createTable(tableName);
     const tableData = Database.getTable(tableName);
     for (let value of values) {
+      await wait(5);
       tableData.push({
         id: `${new Date().getTime()}`,
         ...value,

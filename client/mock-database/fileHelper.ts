@@ -9,7 +9,10 @@ export default class FileHelper {
 
   // Export JSON
   static exportJson(json: any, path: string) {
-    fs.writeFileSync(FileHelper.toRootPath(path), JSON.stringify(json));
+    fs.writeFileSync(
+      FileHelper.toRootPath(path),
+      JSON.stringify(json, null, 2),
+    );
   }
 
   // Export text

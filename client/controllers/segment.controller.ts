@@ -1,6 +1,10 @@
 // Imports
-import segmentServices, { SegmentRecord } from "@/services/segment.services";
+import segmentServices, {
+  SegmentBody,
+  SegmentRecord,
+} from "@/services/segment.services";
 import { NextRequest, NextResponse } from "next/server";
+import QueryHelper from "./query";
 
 /**
  * Controller Interface for Segments
@@ -12,8 +16,8 @@ const segmentController = {
    */
   async createSegment(request: NextRequest) {
     try {
-      const body: SegmentRecord = await request.json();
-      const record = await segmentServices.createSegment(body);
+      const body: SegmentBody = await request.json();
+      const record: SegmentRecord = await segmentServices.createSegment(body);
       return NextResponse.json({
         message: "Segment successfully created!",
         data: record,
@@ -31,7 +35,7 @@ const segmentController = {
 
   /**
    * READ Method
-   * Creates a new segment
+   * Fetches all segments
    */
   async getSegments() {
     try {
@@ -45,6 +49,30 @@ const segmentController = {
       return NextResponse.json(
         {
           error: "Error fetching segments",
+          message: error.message,
+        },
+        { status: 500 },
+      );
+    }
+  },
+
+  /**
+   * DELETE Method
+   * Deletes segments
+   */
+  async deleteSegments(request: NextRequest) {
+    try {
+      const queries = QueryHelper.getQuery(request);
+      const records = await segmentServices.deleteSegments(queries);
+      return NextResponse.json({
+        message: "Segments successfully deleted!",
+        totalCount: records.length,
+        data: records,
+      });
+    } catch (error: any) {
+      return NextResponse.json(
+        {
+          error: "Error deleting segments",
           message: error.message,
         },
         { status: 500 },
