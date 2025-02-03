@@ -1,3 +1,6 @@
+// Use Client
+"use client";
+
 // Imports
 import { CSSProperties, ReactNode } from "react";
 import styles from "./Button.module.css";
@@ -10,6 +13,7 @@ interface ButtonParameters {
   variant?: string;
   colorScheme?: string;
   to?: string;
+  onClick?: () => void;
   children: ReactNode;
 }
 
@@ -20,6 +24,7 @@ export default function Button({
   variant = "default",
   colorScheme = "default",
   to = "",
+  onClick = () => {},
   children,
 }: ButtonParameters) {
   // XML Parameters
@@ -33,6 +38,7 @@ export default function Button({
       className={`${styles["container"]} ${className} ${styles[`variant-${variant}`]} ${styles[`color-scheme-${colorScheme}`]} flex-center flex-column`}
       style={containerStyle}
       to={to}
+      onClick={onClick}
     >
       {children}
     </OptionalLink>

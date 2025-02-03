@@ -7,6 +7,7 @@ interface OptionalLinkParameters {
   className?: string;
   style?: CSSProperties;
   to?: string;
+  onClick?: () => void;
   children: ReactNode;
 }
 
@@ -15,16 +16,17 @@ export default function OptionalLink({
   className = "",
   style = {},
   to = "",
+  onClick = () => {},
   children,
 }: OptionalLinkParameters) {
   return (
     <>
       {to ? (
-        <Link className={className} style={style} href={to}>
+        <Link className={className} style={style} href={to} onClick={onClick}>
           {children}
         </Link>
       ) : (
-        <div className={className} style={style}>
+        <div className={className} style={style} onClick={onClick}>
           {children}
         </div>
       )}

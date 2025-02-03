@@ -55,7 +55,7 @@ export default function RoutesPage({
             />
           </FloatRightContainer>
         </div>
-        <div>Z</div>
+        <Spacer size={20} />
         <div
           style={{
             width: "100%",
@@ -63,7 +63,7 @@ export default function RoutesPage({
             border: "1px solid black",
           }}
         >
-          <MapComponent minHeight="300px" />
+          <MapComponent minHeight={200} />
         </div>
       </div>
     </UserSitePage>
