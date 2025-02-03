@@ -2,7 +2,7 @@
 "use client";
 
 // Imports
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import styles from "./NewSegmentTab.module.css";
 import InfoContainer from "@/component/util/data/InfoContainer";
 import Spacer from "@/component/util/spacer/Spacer";
@@ -11,7 +11,7 @@ import { sportTypeData } from "./content";
 import LabeledTextField from "@/component/util/input/label/LabeledTextField";
 import LabeledCheckBox from "@/component/util/input/label/LabeledCheckBox";
 import Button from "@/component/util/button/Button";
-import { SP } from "next/dist/shared/lib/utils";
+import { createSegment } from "@/api/segments";
 
 // Parameters Interface
 interface NewSegmentTabParameters {
@@ -32,6 +32,26 @@ export default function NewSegmentTab({
   const [elevDiff, setElevDiff] = useState<string>("");
   const [avgGrade, setAvgGrade] = useState<string>("");
 
+  // Handler Methods
+  const handleCreate = () => {
+    const newSegment = {
+      starred: starred ? "★" : "-",
+      sportType,
+      name: segmentName,
+      cat: "1",
+      distance,
+      elevDiff,
+      avgGrade,
+      menRecord: "--",
+      womenRecord: "--",
+      myPr: "--",
+      goal: "--",
+    };
+    createSegment(newSegment).then(() => {
+      window.location.reload();
+    });
+  };
+
   // XML Parameters
   const containerStyle: CSSProperties = {
     ...style,
@@ -50,19 +70,6 @@ export default function NewSegmentTab({
         <div>&nbsp;</div>
       </InfoContainer>
       <Spacer size={10} />
-      {/*
-      Star
-Sport
-Name
-Cat.
-Dist.
-Elev. Diff.
-Avg. Grade
-👑 Men
-👑 Women
-My PR
-My Goal
-      */}
       <div className={`${styles["field-container"]}`}>
         <div className={`${styles["field-group"]}`}>
           <div className={`${styles["name-field"]} ${styles["field"]}`}>
@@ -117,17 +124,17 @@ My Goal
           </div>
           <div className={`${styles["avg-grades-field"]} ${styles["field"]}`}>
             <LabeledTextField
-              labelText="Avegrade Grade (%)"
+              labelText="Average Grade (%)"
               placeholder="Enter an Average Grade"
               width={400}
-              value={elevDiff}
-              setValue={setElevDiff}
+              value={avgGrade}
+              setValue={setAvgGrade}
             />
           </div>
         </div>
       </div>
       <Spacer size={25} />
-      <Button>Create Segment</Button>
+      <Button onClick={handleCreate}>Create Segment</Button>
     </div>
   );
 }
