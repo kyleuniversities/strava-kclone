@@ -56,7 +56,7 @@ export default function MapComponent({
         const value = child.textContent;
       }
       for (let i = 0; i < inputs2.length; i++) {
-        const child: HTMLInputElement = inputs2STA.item(i) as HTMLInputElement;
+        const child: HTMLInputElement = inputs2.item(i) as HTMLInputElement;
         child.value = "BB";
       }
       alert(
@@ -122,7 +122,6 @@ export default function MapComponent({
   // XML Parameters
   const containerStyle: CSSProperties = {
     ...style,
-    minHeight: Number(`${minHeight}`) + 150,
   };
   const mapStyle: CSSProperties = {
     minHeight,
@@ -134,15 +133,12 @@ export default function MapComponent({
       className={`${styles["container"]} ${className}`}
       style={containerStyle}
     >
-      <div className="flex">
-        <Button variant="small" onClick={handleSave}>
-          Save
-        </Button>
-        <Text size="soft-medium-large">VALUE: {value}</Text>
-        <SidePadder size={60} />
-        <Text size="soft-medium-large">B-VALUE: {bValue}</Text>
-      </div>
-      <div ref={mapNode} className={`${styles["map"]}`} style={mapStyle} />
+      <div
+        id="map-component"
+        ref={mapNode}
+        className={`${styles["map"]}`}
+        style={mapStyle}
+      />
     </div>
   );
 }

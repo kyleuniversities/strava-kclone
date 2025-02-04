@@ -1,5 +1,8 @@
+// Use Client
+"use client";
+
 // Imports
-import { CSSProperties } from "react";
+import { CSSProperties, Dispatch, SetStateAction, useState } from "react";
 import styles from "./RoutesPage.module.css";
 import UserSitePage from "@/component/site/page/user/UserSitePage";
 import Text from "@/component/util/text/Text";
@@ -8,6 +11,9 @@ import LinkSpan from "@/component/util/text/span/LinkSpan";
 import Spacer from "@/component/util/spacer/Spacer";
 import Button from "@/component/util/button/Button";
 import MapComponent from "@/component/util/map/MapComponent";
+import RoutesInfoContainer from "./RoutesInfoContainer";
+import RoutesListContainer from "./RoutesListContainer";
+import CreateRoutesContainer from "./CreateRoutesContainer";
 
 // Parameters Interface
 interface RoutesPageParameters {
@@ -20,6 +26,64 @@ export default function RoutesPage({
   className = "",
   style = {},
 }: RoutesPageParameters) {
+  // Use State Constants
+  const [name, setName] = useState<string>("");
+  const [origin, setOrigin] = useState<string>("");
+  const [destination, setDestination] = useState<string>("");
+  const [method, setMethod] = useState<string>("Cycling");
+  const [newMode, setNewMode] = useState<boolean>(true);
+
+  // Helper Methods
+  const wait = async (time: number) =>
+    new Promise((resolve: (item: unknown) => void) => {
+      setTimeout(() => resolve(0), time);
+    });
+
+  const toFullTag = (tag: string) => {
+    return tag === "traffic" ? "driving-traffic" : tag;
+  };
+
+  const syncTextInput = async (inputId: string, value: string) => {
+    const inputQuery: HTMLElement | null = document.getElementById(inputId);
+    if (inputQuery) {
+      const input: HTMLElement = inputQuery;
+      const inputChild: HTMLInputElement = input.querySelector(
+        "input",
+      ) as HTMLInputElement;
+      inputChild.value = value;
+    }
+  };
+
+  const syncTabInput = (tag: string) => {
+    const fullTag = toFullTag(tag);
+    const inputId = `mapbox-directions-profile-${fullTag}`;
+    const inputQuery: HTMLElement | null = document.getElementById(inputId);
+    if (inputQuery) {
+      const input: HTMLElement = inputQuery;
+      input.click();
+    }
+  };
+
+  // Handler Methods
+  const handleSelectCard = async (card: any) => {
+    setName(card.name);
+    setOrigin(card.origin);
+    setDestination(card.destination);
+    setMethod(card.method);
+    document.getElementById("create-route")?.scrollIntoView();
+    setNewMode(false);
+    await wait(50);
+    syncTabInput(card.method.toLowerCase());
+    await wait(50);
+    await syncTextInput("mapbox-directions-origin-input", card.origin);
+    await wait(50);
+    await syncTextInput(
+      "mapbox-directions-destination-input",
+      card.destination,
+    );
+    await wait(50);
+  };
+
   // XML Parameters
   const containerStyle: CSSProperties = {
     ...style,
@@ -32,39 +96,22 @@ export default function RoutesPage({
         className={`${styles["container"]} ${{ className }}}`}
         style={containerStyle}
       >
-        <div className="flex w-full">
-          <div>
-            <Text size="large">My Routes</Text>
-            <Spacer size={10} />
-            <Text size="soft-medium-small">
-              Learn more about{" "}
-              <LinkSpan href="#" colorScheme="blue">
-                sharing & exporting routes
-              </LinkSpan>{" "}
-              to a variety of devices.
-            </Text>
-            <Spacer size={15} />
-            <div className={`${styles["button"]}`}>
-              <Button to="#">View on Map</Button>
-            </div>
-          </div>
-          <FloatRightContainer>
-            <img
-              src="/props/map-computer-background.png"
-              className={`${styles["map-image"]}`}
-            />
-          </FloatRightContainer>
-        </div>
+        <RoutesInfoContainer setNewMode={setNewMode} />
         <Spacer size={20} />
-        <div
-          style={{
-            width: "100%",
-            minHeight: "300px",
-            border: "1px solid black",
-          }}
-        >
-          <MapComponent minHeight={200} />
-        </div>
+        <RoutesListContainer handleSelectCard={handleSelectCard} />
+        <Spacer size={60} />
+        <CreateRoutesContainer
+          name={name}
+          setName={setName}
+          origin={origin}
+          setOrigin={setOrigin}
+          destination={destination}
+          setDestination={setDestination}
+          method={method}
+          setMethod={setMethod}
+          newMode={newMode}
+          setNewMode={setNewMode}
+        />
       </div>
     </UserSitePage>
   );

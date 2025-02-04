@@ -4,6 +4,7 @@ import { CSSProperties, ReactNode } from "react";
 
 // Parameters Interface
 interface OptionalLinkParameters {
+  id?: string;
   className?: string;
   style?: CSSProperties;
   to?: string;
@@ -13,6 +14,7 @@ interface OptionalLinkParameters {
 
 // Export Component
 export default function OptionalLink({
+  id,
   className = "",
   style = {},
   to = "",
@@ -22,11 +24,17 @@ export default function OptionalLink({
   return (
     <>
       {to ? (
-        <Link className={className} style={style} href={to} onClick={onClick}>
+        <Link
+          id={id}
+          className={className}
+          style={style}
+          href={to}
+          onClick={onClick}
+        >
           {children}
         </Link>
       ) : (
-        <div className={className} style={style} onClick={onClick}>
+        <div id={id} className={className} style={style} onClick={onClick}>
           {children}
         </div>
       )}

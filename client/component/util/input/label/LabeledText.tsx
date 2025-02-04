@@ -1,10 +1,10 @@
 // Imports
 import { CSSProperties } from "react";
-import styles from "./LabeledTextField.module.css";
+import styles from "./LabeledText.module.css";
 import LabeledComponent from "../../label/LabeledComponent";
 
 // Parameters Interface
-interface LabeledTextFieldParameters {
+interface LabeledTextParameters {
   id?: string;
   className?: string;
   style?: CSSProperties;
@@ -16,7 +16,7 @@ interface LabeledTextFieldParameters {
 }
 
 // Export Component
-export default function LabeledTextField({
+export default function LabeledText({
   id,
   className = "",
   style = {},
@@ -24,25 +24,22 @@ export default function LabeledTextField({
   labelText,
   placeholder,
   value,
-  setValue,
-}: LabeledTextFieldParameters) {
+}: LabeledTextParameters) {
   // XML Parameters
-  const inputStyle: CSSProperties = {
+  const textStyle: CSSProperties = {
     width,
   };
 
   // Return Component
   return (
     <LabeledComponent className={className} style={style} labelText={labelText}>
-      <input
-        id={id}
-        className={`${styles["container"]}`}
-        style={inputStyle}
-        type="text"
-        placeholder={placeholder}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
+      <div id={id} className={`${styles["container"]}`} style={textStyle}>
+        {value ? (
+          <span>{value}</span>
+        ) : (
+          <span className={`${styles["placeholder"]}`}>{placeholder}</span>
+        )}
+      </div>
     </LabeledComponent>
   );
 }

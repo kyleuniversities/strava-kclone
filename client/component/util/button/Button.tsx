@@ -8,6 +8,7 @@ import OptionalLink from "../optional/OptionalLink";
 
 // Parameters Interface
 interface ButtonParameters {
+  id?: string;
   className?: string;
   style?: CSSProperties;
   variant?: string;
@@ -19,6 +20,7 @@ interface ButtonParameters {
 
 // Export Component
 export default function Button({
+  id,
   className = "",
   style = {},
   variant = "default",
@@ -35,6 +37,7 @@ export default function Button({
   // Return Component
   return (
     <OptionalLink
+      id={id}
       className={`${styles["container"]} ${className} ${styles[`variant-${variant}`]} ${styles[`color-scheme-${colorScheme}`]} flex-center flex-column`}
       style={containerStyle}
       to={to}
