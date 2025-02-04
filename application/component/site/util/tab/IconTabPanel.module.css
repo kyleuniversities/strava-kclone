@@ -1,0 +1,14 @@
+.container {
+	display: block;
+}
+
+.tab-cap {
+	padding: 15px;
+}
+
+.active {
+	color: var(--orange);
+	background-color: var(--white);
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}

@@ -1,0 +1,24 @@
+.container {
+	display: flex;
+	min-height: 70vh;
+}
+
+.prompt-container {
+	width: 34%;
+	text-align: center;
+	padding-left: 60px;
+	padding-right: 60px;
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+.image-container {
+	width: 33%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.image {
+	min-height: 70vh;
+	object-fit: cover;
+}

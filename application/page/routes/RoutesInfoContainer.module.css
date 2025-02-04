@@ -1,0 +1,11 @@
+.container {
+	display: block;
+}
+
+.map-image {
+	width: 250px;
+}
+
+.button {
+	max-width: 10vw;
+}

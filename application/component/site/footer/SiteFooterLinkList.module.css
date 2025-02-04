@@ -1,0 +1,16 @@
+.container {
+	display: block;
+	padding-left: 7%;
+}
+
+.link {
+	transition: 0.3s;
+}
+
+.link + .link {
+	margin-top: 15px;
+}
+
+.link:hover {
+	text-decoration: underline;
+}

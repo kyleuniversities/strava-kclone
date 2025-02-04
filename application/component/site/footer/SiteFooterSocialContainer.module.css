@@ -1,0 +1,16 @@
+.container {
+	display: block;
+	padding-left: 8%;
+}
+
+.social-icon {
+	transition: 0.3s;
+}
+
+.social-icon:hover {
+	color: var(--active-dark-link);
+}
+
+.social-icon + .social-icon {
+	padding-left: 25px;
+}

@@ -1,0 +1,23 @@
+.container {
+	display: block;
+}
+
+.tab-cap {
+	padding: 15px;
+}
+
+.active {
+	color: var(--black);
+	border-top: 3px solid var(--orange);
+	border-left: 1px solid var(--gray-230);
+	border-right: 1px solid var(--gray-230);
+	border-bottom: 1px solid var(--white);
+}
+
+.inactive {
+	color: var(--black);
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid var(--gray-230);
+}

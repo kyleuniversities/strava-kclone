@@ -1,0 +1,77 @@
+.container {
+	display: block;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 8%;
+	padding-right: 8%;
+	background-color: var(--white);
+}
+
+.search-form {
+	padding: 20px;
+	background-color: var(--gray-230);
+}
+
+.club + .club {
+	border-top: 1px solid var(--gray-220);
+}
+
+.club {
+	padding: 15px;
+	transition: 0.15s;
+}
+
+.club:hover {
+	background-color: var(--gray-230);
+}
+
+.image {
+	width: 60px;
+	height: 60px;
+}
+
+.club-title {
+	width: 20%;
+}
+
+.members {
+	width: 10%;
+}
+
+.sport-type {
+	width: 10%;
+}
+
+.type {
+	width: 15%;
+}
+
+.pagination-container {
+	max-width: 80vw;
+}
+
+.pagination-card-link + .pagination-card-link {
+	margin-left: 10px;
+}
+
+.pagination-card {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 1px solid var(--gray-230);
+	border-radius: 10px;
+	transition: 0.3s;
+}
+
+.pagination-card:hover {
+	background-color: var(--light-orange);
+}
+
+.pagination-card.active {
+	background-color: var(--orange);
+}
+
+.pagination-card.active:hover {
+	background-color: var(--orange);
+}

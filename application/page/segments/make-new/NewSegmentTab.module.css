@@ -1,0 +1,26 @@
+.container {
+	display: block;
+	padding-top: 15px;
+}
+
+.button {
+	max-width: 13vw;
+}
+
+.name-field {
+	width: 39vw;
+}
+
+.field + .field {
+	margin-left: 20px;
+}
+
+.field-group {
+	display: flex;
+	padding: 20px;
+}
+
+.field-container {
+	display: block;
+	background-color: var(--gray-orange-235);
+}

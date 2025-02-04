@@ -1,0 +1,14 @@
+.container {
+	display: flex;
+	padding: 15px;
+}
+
+.icon {
+	padding-top: 10px;
+	width: 15%;
+	display: flex;
+}
+
+.info {
+	width: 85%;
+}
