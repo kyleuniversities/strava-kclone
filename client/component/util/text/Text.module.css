@@ -3,35 +3,35 @@
 }
 
 .small {
-	font-size: 14px;
+	font-size: 0.9114vw;
 }
 
 .soft-medium-small {
-	font-size: 18px;
+	font-size: 1.172vw;
 	font-weight: 500;
 }
 
 .medium-small {
-	font-size: 18px;
+	font-size: 1.172vw;
 	font-weight: 600;
 }
 
 .soft-medium-large {
-	font-size: 22px;
+	font-size: 1.432vw;
 	font-weight: 500;
 }
 
 .medium-large {
-	font-size: 22px;
+	font-size: 1.432vw;
 	font-weight: 600;
 }
 
 .soft-large {
-	font-size: 28px;
+	font-size: 1.8228vw;
 	font-weight: 500;
 }
 
 .large {
-	font-size: 28px;
+	font-size: 1.8228vw;
 	font-weight: 600;
 }
