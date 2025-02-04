@@ -27,72 +27,11 @@ export default function MapComponent({
 }: MapComponentParameters) {
   // Use State Constants
   const [map, setMap] = useState<mapboxgl.Map>();
-  const [time, setTime] = useState<number>(0);
-  const [value, setValue] = useState<string>("");
-  const [bValue, setBValue] = useState<string>("");
 
   // Use Reference Constants
   const mapNode = useRef(null);
 
-  // Handler Methods
-  const handleSave = () => {
-    const inputQuery: HTMLElement | null = document.getElementById(
-      "mapbox-directions-destination-input",
-    );
-    const inputQuery2: HTMLElement | null = document.getElementById(
-      "mapbox-directions-origin-input",
-    );
-    if (inputQuery && inputQuery2) {
-      const input: HTMLElement = inputQuery;
-      const input2: HTMLElement = inputQuery2;
-      const inputs: NodeListOf<HTMLInputElement> =
-        input.querySelectorAll("input");
-      const inputs2: NodeListOf<HTMLInputElement> =
-        input2.querySelectorAll("input");
-      const values = [];
-      for (let i = 0; i < inputs.length; i++) {
-        const child: HTMLInputElement = inputs.item(i) as HTMLInputElement;
-        values.push(child.innerHTML + "___" + child.value);
-        const value = child.textContent;
-      }
-      for (let i = 0; i < inputs2.length; i++) {
-        const child: HTMLInputElement = inputs2.item(i) as HTMLInputElement;
-        child.value = "BB";
-      }
-      alert(
-        `Save: L=${inputs.length} ${JSON.stringify(input.innerHTML)} >>>>> ${JSON.stringify(values)} + \"${input.textContent}\"`,
-      );
-    }
-  };
-
   // Use Effects
-  useEffect(() => {
-    if (time < 10) {
-      setTimeout(() => {
-        const inputQuery: HTMLElement | null = document.getElementById(
-          "mapbox-directions-destination-input",
-        );
-        if (inputQuery) {
-          const input: HTMLElement = inputQuery;
-          const children: HTMLCollection = input.children;
-          for (let i = 0; i < children.length; i++) {
-            const child: HTMLElement = children.item(i) as HTMLElement;
-            child.addEventListener("change", (event: any) => {
-              const element: any = event.target;
-              const value = element.value;
-              setValue(value);
-              // alert(
-              //   `child-${i}-value: ${value}; ${JSON.stringify(element.innerHTML)}`,
-              // );
-            });
-          }
-          // alert(`${time}: ${input.innerHTML}`);
-        }
-        setTime(time + 1);
-      }, 1000);
-    }
-  }, [time]);
-
   useEffect(() => {
     const node = mapNode.current;
     if (typeof window === "undefined" || node === null) {
