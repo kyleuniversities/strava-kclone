@@ -76,7 +76,7 @@ export default function NewSegmentTab({
             <LabeledTextField
               labelText="Segment Name"
               placeholder="Enter a Segment Name"
-              width={600}
+              width="39vw"
               value={segmentName}
               setValue={setSegmentName}
             />
@@ -89,13 +89,13 @@ export default function NewSegmentTab({
               dropdownData={sportTypeData}
               maxHeight="50vh"
               nodePadding={10}
-              width={400}
+              width="26vw"
             />
           </div>
           <div className={`${styles["starred-field"]} ${styles["field"]}`}>
             <LabeledCheckBox
               labelText="Starred"
-              width={200}
+              width="13vw"
               checked={starred}
               setChecked={setStarred}
               checkboxId="starred-checkbox"
@@ -108,7 +108,7 @@ export default function NewSegmentTab({
             <LabeledTextField
               labelText="Distance (mi)"
               placeholder="Enter a Distance"
-              width={400}
+              width="26vw"
               value={distance}
               setValue={setDistance}
             />
@@ -117,7 +117,7 @@ export default function NewSegmentTab({
             <LabeledTextField
               labelText="Elevation Difference (ft)"
               placeholder="Enter an Elevation Difference"
-              width={400}
+              width="26vw"
               value={elevDiff}
               setValue={setElevDiff}
             />
@@ -126,7 +126,7 @@ export default function NewSegmentTab({
             <LabeledTextField
               labelText="Average Grade (%)"
               placeholder="Enter an Average Grade"
-              width={400}
+              width="26vw"
               value={avgGrade}
               setValue={setAvgGrade}
             />

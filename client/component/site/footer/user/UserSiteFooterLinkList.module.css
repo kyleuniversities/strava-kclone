@@ -5,7 +5,7 @@
 
 .link {
 	transition: 0.3s;
-	max-width: 150px;
+	max-width: 10vw;
 }
 
 .link + .link {

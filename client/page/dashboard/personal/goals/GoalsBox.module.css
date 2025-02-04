@@ -24,7 +24,7 @@
 }
 
 .path-icon {
-	--size: 32px;
+	--size: 2vw;
 	border: 2px solid var(--orange);
 	width: var(--size);
 	height: var(--size);

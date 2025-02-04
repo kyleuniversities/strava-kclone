@@ -129,7 +129,7 @@ export default function CreateRoutesContainer({
   };
 
   // XML Parameters
-  const minHeight = "500px";
+  const minHeight = "32.5vw";
   const containerStyle: CSSProperties = {
     ...style,
   };
@@ -149,7 +149,7 @@ export default function CreateRoutesContainer({
               id="route-name"
               labelText="Route Name"
               placeholder="Enter a Name"
-              width={1200}
+              width="78vw"
               value={name}
               setValue={setName}
             />
@@ -160,7 +160,7 @@ export default function CreateRoutesContainer({
             <LabeledText
               labelText="Start Place"
               placeholder="Start Place"
-              width={400}
+              width="26vw"
               value={origin}
               setValue={() => {}}
             />
@@ -169,7 +169,7 @@ export default function CreateRoutesContainer({
             <LabeledText
               labelText="End Place"
               placeholder="End Place"
-              width={400}
+              width="26vw"
               value={destination}
               setValue={() => {}}
             />
@@ -178,7 +178,7 @@ export default function CreateRoutesContainer({
             <LabeledText
               labelText="Travel Type"
               placeholder="Travel Type"
-              width={400}
+              width="26vw"
               value={method}
               setValue={() => {}}
             />
