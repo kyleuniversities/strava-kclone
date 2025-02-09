@@ -1,0 +1,10 @@
+.container {
+	display: block;
+	width: 28.5%;
+}
+
+.social-box {
+	margin-left: 25px;
+	background-color: var(--white);
+	border-radius: 3px;
+}

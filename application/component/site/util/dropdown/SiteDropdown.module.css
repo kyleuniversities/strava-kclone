@@ -1,0 +1,48 @@
+.container {
+	display: block;
+	background-color: var(--white);
+}
+
+.dropdown-chevron {
+	margin-top: 6px;
+}
+
+.node {
+	padding: 20px;
+}
+
+.section {
+	display: block;
+}
+
+.section-title {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 14px;
+}
+
+.color-scheme-default .node {
+	background-color: var(--gray-250);
+}
+
+.color-scheme-default .node:hover {
+	background-color: var(--gray-230);
+}
+
+.color-scheme-gray .node {
+	background-color: var(--gray-230);
+}
+
+.color-scheme-gray .node:hover {
+	background-color: var(--gray-210);
+}
+
+.color-scheme-default .section-title {
+	background-color: var(--gray-250);
+}
+
+.color-scheme-gray .section-title {
+	background-color: var(--gray-230);
+}

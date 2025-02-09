@@ -1,0 +1,25 @@
+.container {
+	display: block;
+}
+
+.field + .field {
+	margin-left: 20px;
+}
+
+.field-group {
+	display: flex;
+	padding: 20px;
+}
+
+.field-container {
+	display: block;
+	background-color: var(--gray-orange-235);
+}
+
+.button {
+	width: 19.53vw;
+}
+
+.button-creation {
+	width: 19.53vw;
+}

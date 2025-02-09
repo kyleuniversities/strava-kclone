@@ -1,0 +1,15 @@
+.container {
+	display: flex;
+	background-color: var(--white);
+	border-radius: 3px;
+}
+
+.main-container {
+	padding-top: 10px;
+	border-bottom: 1px solid var(--gray-240);
+	width: 100%;
+}
+
+.add-container {
+	padding: 15px;
+}

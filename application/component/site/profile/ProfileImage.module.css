@@ -1,0 +1,8 @@
+.container {
+	display: block;
+}
+
+.profile-pic {
+    border-radius: 1000px;
+    border: 1px solid var(--gray-210);
+}

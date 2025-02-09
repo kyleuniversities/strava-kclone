@@ -1,0 +1,11 @@
+.container {
+	display: block;
+}
+
+.color-scheme-default {
+	color: var(--orange);
+}
+
+.color-scheme-blue {
+	color: var(--water-blue);
+}

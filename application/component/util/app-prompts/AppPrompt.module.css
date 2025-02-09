@@ -1,0 +1,27 @@
+.container {
+	background-color: black;
+	color: white;
+	border-radius: 10px;
+	padding: 10px;
+	max-width: 10vw;
+	transform: 0.3s;
+}
+
+.container:hover {
+	color: var(--active-link);
+}
+
+.container + .container {
+	margin-top: 10px;
+}
+
+.prompt {
+	font-size: 10px;
+	line-height: 90%;
+}
+
+.medium {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 90%;
+}
